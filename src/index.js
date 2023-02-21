@@ -52,6 +52,7 @@ export default class Embed {
     this._data = {};
     this.element = null;
     this.readOnly = readOnly;
+    this.html = '';
 
     this.data = data;
   }
@@ -86,6 +87,8 @@ export default class Embed {
     if (oldView) {
       oldView.parentNode.replaceChild(this.render(), oldView);
     }
+
+    this.html = Embed.services[this.data.service];
   }
 
   /**
@@ -192,7 +195,7 @@ export default class Embed {
    * @returns {EmbedData}
    */
   save() {
-    return this.data;
+    return this.html;
   }
 
   /**
