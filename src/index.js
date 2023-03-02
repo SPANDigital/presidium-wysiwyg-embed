@@ -195,7 +195,7 @@ export default class Embed {
    * @returns {EmbedData}
    */
   save() {
-    return this.html;
+    return this.html.html;
   }
 
   /**
