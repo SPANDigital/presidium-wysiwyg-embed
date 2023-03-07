@@ -195,7 +195,7 @@ export default class Embed {
    * @returns {EmbedData}
    */
   save() {
-    return this.html.html;
+    return this.element.querySelector('iframe').outerHTML;
   }
 
   /**
