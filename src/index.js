@@ -195,13 +195,14 @@ export default class Embed {
   save() {
     const iframe = this.element.querySelector('iframe');
     const html = iframe.outerHTML;
-    //iframe.setAttribute('service', this.data.service);
 
+    // We could inject this directly into the HTML, but it sends EditorJS into a saving loop
+    // So rather manipulate the string manually
     let attributes = " ";
-    attributes += `service='${this.data.service}' `;
+    attributes += `service="${this.data.service}" `;
+    attributes += `embed="${this.data.embed}" `;
 
     const finalHtml = html.substring(0, html.length - 10) + attributes + html.substring(html.length - 10);
-    console.log(finalHtml);
 
     return finalHtml;
   }
