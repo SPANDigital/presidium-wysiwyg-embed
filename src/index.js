@@ -194,8 +194,16 @@ export default class Embed {
    */
   save() {
     const iframe = this.element.querySelector('iframe');
+    const html = iframe.outerHTML;
     //iframe.setAttribute('service', this.data.service);
-    return iframe.outerHTML;
+
+    let attributes = " ";
+    attributes += `service='${this.data.service}' `;
+
+    const finalHtml = html.substring(0, html.length - 10) + attributes + html.substring(html.length - 10);
+    console.log(finalHtml);
+
+    return finalHtml;
   }
 
   /**
